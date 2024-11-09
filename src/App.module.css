@@ -1,0 +1,11 @@
+/* App.module.css */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.mainContent {
+  flex: 1;
+  background-color: #f9fafb;
+}
