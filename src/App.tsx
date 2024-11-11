@@ -4,7 +4,7 @@ import { OrbitControls } from '@react-three/drei';
 import styles from './App.module.css';
 import { ParametricSurface } from './ParametricSurface';
 import { Sidebar } from './Sidebar';
-import { Surface, Vec3 } from './types';
+import { Surface, Vec3, VisualizationSettings } from './types';
 
 const surfaces: Surface[] = [
   {
@@ -48,13 +48,11 @@ const surfaces: Surface[] = [
   }
 ];
 
-interface VisualizationSettings {
-  rotationSpeed: number;
-  isRotating: boolean;
-  wireframe: boolean;
-  metalness: number;
-  roughness: number;
-}
+const surfaceColors: Record<number, string> = {
+  1: '#ADD8E6', // Droplet
+  2: '#44ff88', // Torus
+  3: '#ff8844'  // Klein Bottle
+};
 
 const App: React.FC = () => {
   const [selectedSurface, setSelectedSurface] = useState<Surface>(surfaces[0]);
@@ -65,12 +63,6 @@ const App: React.FC = () => {
     metalness: 0,
     roughness: 0
   });
-
-  const surfaceColors: Record<number, string> = {
-    1: '#ADD8E6', // Droplet
-    2: '#44ff88', // Torus
-    3: '#ff8844'  // Klein Bottle
-  };
 
   return (
     <div className={styles.container}>

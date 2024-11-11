@@ -12,3 +12,11 @@ export interface Surface {
     name: string;
     equation: ParametricEquation;
 }
+
+export interface VisualizationSettings {
+    rotationSpeed: number;
+    isRotating: boolean;
+    wireframe: boolean;
+    metalness: number;
+    roughness: number;
+  }
